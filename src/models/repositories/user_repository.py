@@ -17,11 +17,7 @@ class UserRepository:
     def edit_balance(self, user_id: int, new_balance: float) -> None:
         cursor = self.__connection.cursor()
         cursor.execute(
-            """
-        UPDATE users
-        SET balance = ?
-        WHERE id = ?
-        """,
+            """UPDATE users SET balance = ? WHERE id = ?""",
             (new_balance, user_id),
         )
 
@@ -30,11 +26,7 @@ class UserRepository:
     def get_user_by_username(self, username: str):
         cursor = self.__connection.cursor()
         cursor.execute(
-            """
-        SELECT id, username, password
-        FROM users
-        WHERE username = ?
-        """,
+            """SELECT id, username, password FROM users WHERE username = ?""",
             (username,),
         )
 
