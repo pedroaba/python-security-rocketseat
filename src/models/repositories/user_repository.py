@@ -1,7 +1,9 @@
 import sqlite3
 
+from src.models.interfaces.user_repository import UserRepositoryInterface
 
-class UserRepository:
+
+class UserRepository(UserRepositoryInterface):
     def __init__(self, connection: sqlite3.Connection) -> None:
         self.__connection = connection
 
